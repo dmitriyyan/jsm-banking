@@ -46,20 +46,6 @@ declare type NewUserParams = {
   password: string;
 };
 
-declare type Account = {
-  id: string;
-  availableBalance: number;
-  currentBalance: number;
-  officialName: string;
-  mask: string;
-  institutionId: string;
-  name: string;
-  type: string;
-  subtype: string;
-  appwriteItemId: string;
-  sharableId: string;
-};
-
 declare type Transaction = {
   id: string;
   $id: string;
@@ -90,13 +76,13 @@ declare type Bank = {
 };
 
 declare type AccountTypes =
-  | "depository"
-  | "credit"
-  | "loan "
-  | "investment"
-  | "other";
+  | 'depository'
+  | 'credit'
+  | 'loan '
+  | 'investment'
+  | 'other';
 
-declare type Category = "Food and Drink" | "Travel" | "Transfer";
+declare type Category = 'Food and Drink' | 'Travel' | 'Transfer';
 
 declare type CategoryCount = {
   name: string;
@@ -143,14 +129,7 @@ declare interface CreditCardProps {
 declare interface BankInfoProps {
   account: Account;
   appwriteItemId?: string;
-  type: "full" | "card";
-}
-
-declare interface HeaderBoxProps {
-  type?: "title" | "greeting";
-  title: string;
-  subtext: string;
-  user?: string;
+  type: 'full' | 'card';
 }
 
 declare interface MobileNavProps {
@@ -172,12 +151,12 @@ declare interface PaginationProps {
 
 declare interface PlaidLinkProps {
   user: User;
-  variant?: "primary" | "ghost";
+  variant?: 'primary' | 'ghost';
   dwollaCustomerId?: string;
 }
 
 declare interface AuthFormProps {
-  type: "sign-in" | "sign-up";
+  type: 'sign-in' | 'sign-up';
 }
 
 declare interface BankDropdownProps {
@@ -189,12 +168,6 @@ declare interface BankDropdownProps {
 declare interface BankTabItemProps {
   account: Account;
   appwriteItemId?: string;
-}
-
-declare interface TotalBalanceBoxProps {
-  accounts: Account[];
-  totalBanks: number;
-  totalCurrentBalance: number;
 }
 
 declare interface FooterProps {
@@ -233,10 +206,6 @@ declare interface TransactionTableProps {
 
 declare interface CategoryProps {
   category: CategoryCount;
-}
-
-declare interface DoughnutChartProps {
-  accounts: Account[];
 }
 
 declare interface PaymentTransferFormProps {

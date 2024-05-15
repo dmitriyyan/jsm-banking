@@ -8,16 +8,17 @@
   box-sizing: border-box;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .glassmorphism {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
@@ -54,83 +55,6 @@
 
   .text14_padding10 {
     @apply text-14 px-4 py-2.5 font-semibold;
-  }
-
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-
-  .header-2 {
-    @apply text-18 font-semibold text-gray-900;
-  }
-
-  .text-10 {
-    @apply text-[10px] leading-[14px];
-  }
-
-  .text-12 {
-    @apply text-[12px] leading-[16px];
-  }
-
-  .text-14 {
-    @apply text-[14px] leading-[20px];
-  }
-
-  .text-16 {
-    @apply text-[16px] leading-[24px];
-  }
-
-  .text-18 {
-    @apply text-[18px] leading-[22px];
-  }
-
-  .text-20 {
-    @apply text-[20px] leading-[24px];
-  }
-
-  .text-24 {
-    @apply text-[24px] leading-[30px];
-  }
-
-  .text-26 {
-    @apply text-[26px] leading-[32px];
-  }
-
-  .text-30 {
-    @apply text-[30px] leading-[38px];
-  }
-
-  .text-36 {
-    @apply text-[36px] leading-[44px];
-  }
-
-  /* Home */
-  .home {
-    @apply no-scrollbar flex w-full flex-row max-xl:max-h-screen max-xl:overflow-y-scroll;
-  }
-
-  .home-content {
-    @apply no-scrollbar flex w-full flex-1 flex-col gap-8 px-5 sm:px-8 py-7 lg:py-12 xl:max-h-screen xl:overflow-y-scroll;
-  }
-
-  .home-header {
-    @apply flex flex-col justify-between gap-8;
-  }
-
-  .total-balance {
-    @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
-  }
-
-  .total-balance-chart {
-    @apply flex size-full max-w-[100px] items-center sm:max-w-[120px];
-  }
-
-  .total-balance-label {
-    @apply text-14 font-medium text-gray-600;
-  }
-
-  .total-balance-amount {
-    @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900;
   }
 
   .recent-transactions {
@@ -206,18 +130,6 @@
 
   .transactions-account-balance {
     @apply flex-center flex-col  gap-2 rounded-md bg-blue-25/20 px-4 py-2 text-white;
-  }
-
-  .header-box {
-    @apply flex flex-col gap-1;
-  }
-
-  .header-box-title {
-    @apply text-24 lg:text-30 font-semibold text-gray-900;
-  }
-
-  .header-box-subtext {
-    @apply text-14 lg:text-16 font-normal text-gray-600;
   }
 
   /* Bank Card */
