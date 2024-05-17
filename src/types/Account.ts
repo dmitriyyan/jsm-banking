@@ -11,3 +11,10 @@ export type Account = {
   appwriteItemId: string;
   sharableId: string;
 };
+
+export type AccountTypes =
+  | 'depository'
+  | 'credit'
+  | 'loan '
+  | 'investment'
+  | 'other';

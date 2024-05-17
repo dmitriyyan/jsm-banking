@@ -49,23 +49,6 @@ declare type Transaction = {
   receiverBankId: string;
 };
 
-declare type Bank = {
-  $id: string;
-  accountId: string;
-  bankId: string;
-  accessToken: string;
-  fundingSourceUrl: string;
-  userId: string;
-  sharableId: string;
-};
-
-declare type AccountTypes =
-  | 'depository'
-  | 'credit'
-  | 'loan '
-  | 'investment'
-  | 'other';
-
 declare type Category = 'Food and Drink' | 'Travel' | 'Transfer';
 
 declare type CategoryCount = {
@@ -103,12 +86,6 @@ declare type NewDwollaCustomerParams = {
   dateOfBirth: string;
   ssn: string;
 };
-
-declare interface CreditCardProps {
-  account: Account;
-  userName: string;
-  showBalance?: boolean;
-}
 
 declare interface BankInfoProps {
   account: Account;
@@ -152,12 +129,6 @@ declare interface BankTabItemProps {
 
 declare interface FooterProps {
   user: User;
-}
-
-declare interface RightSidebarProps {
-  user: User;
-  transactions: Transaction[];
-  banks: Bank[] & Account[];
 }
 
 declare interface RecentTransactionsProps {

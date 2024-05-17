@@ -1,8 +1,14 @@
 import { HeaderBox } from '@/components/HeaderBox';
+import { RightSidebar } from '@/components/RightSidebar';
 import { TotalBalanceBox } from '@/components/TotalBalanceBox';
 
 export default function Home() {
-  const user = { firstName: 'User' };
+  const user = { firstName: 'User', lastName: 'Name', email: 'test@mail.com' };
+  const transactions = [];
+  const banks = [
+    { currentBalance: 123.4, mask: 1234 },
+    { currentBalance: 324.5, mask: 1234 },
+  ];
 
   return (
     <div className="no-scrollbar flex w-full max-xl:max-h-screen max-xl:overflow-y-scroll">
@@ -20,7 +26,9 @@ export default function Home() {
             totalCurrentBalance={1250.34}
           />
         </header>
+        Recent transactions
       </div>
+      <RightSidebar user={user} transactions={transactions} banks={banks} />
     </div>
   );
 }

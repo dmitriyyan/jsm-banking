@@ -22,8 +22,8 @@ const sidebarLinks = [
   },
   {
     imgURL: '/icons/transaction.svg',
-    route: '/transaction-history',
-    label: 'Transaction Hi story',
+    route: '/transactions',
+    label: 'Transactions',
   },
   {
     imgURL: '/icons/money-send.svg',
