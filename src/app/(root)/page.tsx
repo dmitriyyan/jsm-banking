@@ -1,5 +1,5 @@
-import HeaderBox from '@/components/HeaderBox';
-import TotalBalanceBox from '@/components/TotalBalanceBox';
+import { HeaderBox } from '@/components/HeaderBox';
+import { TotalBalanceBox } from '@/components/TotalBalanceBox';
 
 export default function Home() {
   const user = { firstName: 'User' };

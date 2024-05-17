@@ -23,22 +23,6 @@ declare type LoginUser = {
   password: string;
 };
 
-declare type User = {
-  $id: string;
-  email: string;
-  userId: string;
-  dwollaCustomerUrl: string;
-  dwollaCustomerId: string;
-  firstName: string;
-  lastName: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  dateOfBirth: string;
-  ssn: string;
-};
-
 declare type NewUserParams = {
   userId: string;
   email: string;
@@ -132,10 +116,6 @@ declare interface BankInfoProps {
   type: 'full' | 'card';
 }
 
-declare interface MobileNavProps {
-  user: User;
-}
-
 declare interface PageHeaderProps {
   topTitle: string;
   bottomTitle: string;
@@ -178,10 +158,6 @@ declare interface RightSidebarProps {
   user: User;
   transactions: Transaction[];
   banks: Bank[] & Account[];
-}
-
-declare interface SidebarProps {
-  user: User;
 }
 
 declare interface RecentTransactionsProps {

@@ -1,4 +1,4 @@
-type Account = {
+export type Account = {
   id: string;
   availableBalance: number;
   currentBalance: number;
@@ -11,5 +11,3 @@ type Account = {
   appwriteItemId: string;
   sharableId: string;
 };
-
-export default Account;

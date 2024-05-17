@@ -5,7 +5,7 @@ type HeaderBoxProps = {
   name?: string;
 };
 
-export default function HeaderBox({
+export function HeaderBox({
   title,
   name,
   subtext,

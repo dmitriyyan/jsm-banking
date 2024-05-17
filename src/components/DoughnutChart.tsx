@@ -1,6 +1,6 @@
 'use client';
+import { Account } from '@/types/Account';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import Account from '@/types/Account';
 import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -9,7 +9,7 @@ type DoughnutChartProps = {
   accounts: Account[];
 };
 
-export default function DoughnutChart({ accounts }: DoughnutChartProps) {
+export function DoughnutChart({ accounts }: DoughnutChartProps) {
   const data = {
     datasets: [
       {

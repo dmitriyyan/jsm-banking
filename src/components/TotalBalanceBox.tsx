@@ -1,6 +1,6 @@
-import Account from '@/types/Account';
-import CountUp from '@/components/CountUp';
-import DoughnutChart from '@/components/DoughnutChart';
+import { CountUp } from '@/components/CountUp';
+import { DoughnutChart } from '@/components/DoughnutChart';
+import { Account } from '@/types/Account';
 
 type TotalBalanceBoxProps = {
   accounts: Account[];
@@ -8,7 +8,7 @@ type TotalBalanceBoxProps = {
   totalCurrentBalance: number;
 };
 
-export default function TotalBalanceBox({
+export function TotalBalanceBox({
   accounts,
   totalBanks,
   totalCurrentBalance,
