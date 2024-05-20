@@ -112,10 +112,6 @@ declare interface PlaidLinkProps {
   dwollaCustomerId?: string;
 }
 
-declare interface AuthFormProps {
-  type: 'sign-in' | 'sign-up';
-}
-
 declare interface BankDropdownProps {
   accounts: Account[];
   setValue?: UseFormSetValue<any>;

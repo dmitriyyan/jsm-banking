@@ -45,10 +45,6 @@
 }
 
 @layer utilities {
-  .input-class {
-    @apply text-16 placeholder:text-16 rounded-lg border border-gray-300 text-gray-900 placeholder:text-gray-500;
-  }
-
   .sheet-content button {
     @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
   }
@@ -129,31 +125,6 @@
   /* Auth */
   .auth-asset {
     @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
-  }
-
-  /* Auth Form */
-  .auth-form {
-    @apply flex min-h-screen w-full max-w-[420px] flex-col justify-center gap-5 py-10 md:gap-8;
-  }
-
-  .form-item {
-    @apply flex flex-col gap-1.5;
-  }
-
-  .form-label {
-    @apply text-14 w-full max-w-[280px] font-medium text-gray-700;
-  }
-
-  .form-message {
-    @apply text-12 text-red-500;
-  }
-
-  .form-btn {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
-  }
-
-  .form-link {
-    @apply text-14 cursor-pointer font-medium text-bankGradient;
   }
 
   /* Payment Transfer */
