@@ -58,8 +58,6 @@ export const formatDateTime = (dateString: Date) => {
   };
 };
 
-export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
-
 export const removeSpecialCharacters = (value: string) => {
   return value.replace(/[^\w\s]/gi, '');
 };

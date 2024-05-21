@@ -1,15 +1,8 @@
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { User } from '@/types/User';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Nav } from './Nav';
+import { Footer } from './Footer';
 
 type MobileNavProps = {
   user: User;
@@ -28,8 +21,9 @@ export function MobileNav({ user }: MobileNavProps) {
             className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent side="left" className="border-none bg-white"  >
+        <SheetContent side="left" className="border-none bg-white">
           <Nav />
+          <Footer type="mobile" user={user} />
         </SheetContent>
       </Sheet>
     </div>

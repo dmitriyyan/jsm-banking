@@ -1,5 +1,6 @@
 import { User } from '@/types/User';
 import { Nav } from './Nav';
+import { Footer } from './Footer';
 
 type SidebarProps = {
   user: User;
@@ -12,7 +13,7 @@ export function Sidebar({ user }: SidebarProps) {
         <Nav />
         USER
       </nav>
-      USER
+      <Footer user={user} />
     </div>
   );
 }

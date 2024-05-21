@@ -5,18 +5,6 @@
 // };
 // ========================================
 
-declare type SignUpParams = {
-  firstName: string;
-  lastName: string;
-  address1: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  dateOfBirth: string;
-  ssn: string;
-  email: string;
-  password: string;
-};
 
 declare type LoginUser = {
   email: string;
@@ -123,10 +111,6 @@ declare interface BankTabItemProps {
   appwriteItemId?: string;
 }
 
-declare interface FooterProps {
-  user: User;
-}
-
 declare interface RecentTransactionsProps {
   accounts: Account[];
   transactions: Transaction[];
@@ -191,11 +175,6 @@ declare interface CreateTransactionProps {
 
 declare interface getTransactionsByBankIdProps {
   bankId: string;
-}
-
-declare interface signInProps {
-  email: string;
-  password: string;
 }
 
 declare interface getUserInfoProps {

@@ -1,9 +1,10 @@
 import { HeaderBox } from '@/components/HeaderBox';
 import { RightSidebar } from '@/components/RightSidebar';
 import { TotalBalanceBox } from '@/components/TotalBalanceBox';
+import { getLoggedInUser } from '@/lib/actions/user.actions';
 
-export default function Home() {
-  const user = { firstName: 'User', lastName: 'Name', email: 'test@mail.com' };
+export default async function Home() {
+  const user = await getLoggedInUser();
   const transactions = [];
   const banks = [
     { currentBalance: 123.4, mask: 1234 },
@@ -17,7 +18,7 @@ export default function Home() {
           <HeaderBox
             type="greeting"
             title="Welcome"
-            name={user?.firstName}
+            name={user?.name}
             subtext="Access and manage your account and transactions efficiently."
           />
           <TotalBalanceBox

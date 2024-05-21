@@ -11,6 +11,8 @@ import { Form } from '@/components/ui/form';
 import { CustomInput } from './CustomInput';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { SignUpParams, signIn, signUp } from '@/lib/actions/user.actions';
+import { User } from '@/types/User';
 
 type AuthType = 'sign-in' | 'sign-up';
 
@@ -40,7 +42,7 @@ type AuthFormProps = {
 };
 
 export function AuthForm({ type }: AuthFormProps) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const authFormSchema = useMemo(() => createAuthFormSchema(type), [type]);
   const router = useRouter();
 
@@ -49,6 +51,14 @@ export function AuthForm({ type }: AuthFormProps) {
     defaultValues: {
       email: '',
       password: '',
+      firstName: '',
+      lastName: '',
+      address1: '',
+      city: '',
+      state: '',
+      postalCode: '',
+      dateOfBirth: '',
+      ssn: '',
     },
   });
 
@@ -58,15 +68,19 @@ export function AuthForm({ type }: AuthFormProps) {
     try {
       // Sign up with appwrite & create token
       if (type === 'sign-up') {
-        // const newUser = await signUp(values);
+        const data = values as SignUpParams;
+        const newUser = await signUp(data);
+        setUser(newUser);
       } else {
-        // const user = await signIn({
-        //   email: values.email,
-        //   password: values.password,
-        // });
+        const user = await signIn({
+          email: values.email,
+          password: values.password,
+        });
+        setUser(user);
       }
-      router.push('/');
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const pageTitle = type === 'sign-in' ? 'Sign In' : 'Sign Up';

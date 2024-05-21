@@ -122,11 +122,6 @@
     @apply flex !justify-start cursor-pointer gap-3 rounded-lg !bg-transparent flex-row;
   }
 
-  /* Auth */
-  .auth-asset {
-    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
-  }
-
   /* Payment Transfer */
   .payment-transfer {
     @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 p-8 md:max-h-screen xl:py-12;
@@ -155,34 +150,5 @@
   /* Bank Info */
   .bank-info_content {
     @apply flex flex-1 items-center justify-between gap-2 overflow-hidden;
-  }
-
-  /* Footer */
-  .footer {
-    @apply flex cursor-pointer items-center justify-between gap-2 py-6;
-  }
-
-  .footer_name {
-    @apply flex size-10 items-center justify-center rounded-full bg-gray-200 max-xl:hidden;
-  }
-
-  .footer_email {
-    @apply flex flex-1 flex-col justify-center max-xl:hidden;
-  }
-
-  .footer_name-mobile {
-    @apply flex size-10 items-center justify-center rounded-full bg-gray-200;
-  }
-
-  .footer_email-mobile {
-    @apply flex flex-1 flex-col justify-center;
-  }
-
-  .footer_image {
-    @apply relative size-5 max-xl:w-full max-xl:flex max-xl:justify-center max-xl:items-center;
-  }
-
-  .footer_image-mobile {
-    @apply relative size-5;
   }
 }
