@@ -10,9 +10,10 @@ import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { CustomInput } from './CustomInput';
 import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import { SignUpParams, signIn, signUp } from '@/lib/actions/user.actions';
 import { User } from '@/types/User';
+import { PlaidLink } from './PlaidLink';
+import { useRouter } from 'next/navigation';
 
 type AuthType = 'sign-in' | 'sign-up';
 
@@ -62,7 +63,7 @@ export function AuthForm({ type }: AuthFormProps) {
     },
   });
 
-  const { isLoading } = form.formState;
+  const { isSubmitting } = form.formState;
 
   async function onSubmit(values: z.infer<typeof authFormSchema>) {
     try {
@@ -72,11 +73,11 @@ export function AuthForm({ type }: AuthFormProps) {
         const newUser = await signUp(data);
         setUser(newUser);
       } else {
-        const user = await signIn({
+        await signIn({
           email: values.email,
           password: values.password,
         });
-        setUser(user);
+        router.push('/');
       }
     } catch (error) {
       console.error(error);
@@ -110,7 +111,9 @@ export function AuthForm({ type }: AuthFormProps) {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4"></div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
@@ -202,7 +205,7 @@ export function AuthForm({ type }: AuthFormProps) {
                   className="text-base rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form"
                   type="submit"
                 >
-                  {isLoading ? (
+                  {isSubmitting ? (
                     <>
                       <Loader2 size={20} className="animate-spin" />
                       &nbsp; Loading...

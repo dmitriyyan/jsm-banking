@@ -94,12 +94,6 @@ declare interface PaginationProps {
   totalPages: number;
 }
 
-declare interface PlaidLinkProps {
-  user: User;
-  variant?: 'primary' | 'ghost';
-  dwollaCustomerId?: string;
-}
-
 declare interface BankDropdownProps {
   accounts: Account[];
   setValue?: UseFormSetValue<any>;
