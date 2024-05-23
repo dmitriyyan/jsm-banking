@@ -27,7 +27,7 @@ export function Footer({ user, type = 'desktop' }: FooterProps) {
             : 'flex size-10 items-center justify-center rounded-full bg-gray-200 max-xl:hidden'
         }
       >
-        <p className="text-xl font-bold text-gray-700">{user.name[0]}</p>
+        <p className="text-xl font-bold text-gray-700">{user.firstName[0]}</p>
       </div>
       <div
         className={
@@ -37,7 +37,7 @@ export function Footer({ user, type = 'desktop' }: FooterProps) {
         }
       >
         <h4 className="text-sm truncate text-gray-700 font-semibold">
-          {user.name}
+          {user.firstName} {user.lastName}
         </h4>
         <p className="text-sm truncate font-normal text-gray-600">
           {user.email}

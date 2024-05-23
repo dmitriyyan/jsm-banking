@@ -9,7 +9,7 @@ export type Account = {
   type: string;
   subtype: string;
   appwriteItemId: string;
-  sharableId: string;
+  shareableId: string;
 };
 
 export type AccountTypes =

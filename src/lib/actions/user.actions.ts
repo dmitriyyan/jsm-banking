@@ -1,8 +1,7 @@
 'use server';
-import { ID } from 'node-appwrite';
+import { ID, Query } from 'node-appwrite';
 import { createAdminClient, createSessionClient } from '../server/appwrite';
 import { cookies } from 'next/headers';
-import { userSignInToDto, userSignUpToDto } from '../user/dto';
 import { User } from '@/types/User';
 import {
   CountryCode,
@@ -21,6 +20,21 @@ const {
   APPWRITE_BANK_COLLECTION_ID: BANK_COLLECTION_ID,
 } = process.env;
 
+export async function getUserInfo({ userId }: { userId: string }) {
+  try {
+    const { database } = await createAdminClient();
+    const user = await database.listDocuments(
+      DATABASE_ID!,
+      USER_COLLECTION_ID!,
+      [Query.equal('userId', userId)],
+    );
+    return JSON.parse(JSON.stringify(user.documents[0]));
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
 type SignInParams = {
   email: string;
   password: string;
@@ -38,8 +52,8 @@ export async function signIn(data: SignInParams) {
       sameSite: 'strict',
       secure: true,
     });
-    const user = await account.get();
-    return userSignInToDto(user);
+    const user = await getUserInfo({ userId: session.userId });
+    return JSON.parse(JSON.stringify(user));
   } catch (error) {
     throw error;
   }
@@ -105,7 +119,7 @@ export async function signUp({ password, ...restData }: SignUpParams) {
       sameSite: 'strict',
       secure: true,
     });
-    return userSignUpToDto(user);
+    return JSON.parse(JSON.stringify(user));
   } catch (error) {
     console.error(error);
     throw error;
@@ -115,8 +129,9 @@ export async function signUp({ password, ...restData }: SignUpParams) {
 export async function getLoggedInUser() {
   try {
     const { account } = await createSessionClient();
-    const user = await account.get();
-    return userSignInToDto(user);
+    const acc = await account.get();
+    const user = await getUserInfo({ userId: acc.$id });
+    return JSON.parse(JSON.stringify(user));
   } catch (error) {
     throw error;
   }
@@ -253,6 +268,36 @@ export async function exchangePublicToken({
   } catch (error) {
     // Log any errors that occur during the process
     console.error('An error occurred while creating exchanging token:', error);
+    throw error;
+  }
+}
+
+export async function getBanks({ userId }: { userId: string }) {
+  try {
+    const { database } = await createAdminClient();
+    const banks = await database.listDocuments(
+      DATABASE_ID!,
+      BANK_COLLECTION_ID!,
+      [Query.equal('userId', userId)],
+    );
+    return JSON.parse(JSON.stringify(banks));
+  } catch (error) {
+    console.error('An error occurred while getting the banks:', error);
+    throw error;
+  }
+}
+
+export async function getBank({ documentId }: { documentId: string }) {
+  try {
+    const { database } = await createAdminClient();
+    const bank = await database.listDocuments(
+      DATABASE_ID!,
+      BANK_COLLECTION_ID!,
+      [Query.equal('$id', documentId)],
+    );
+    return JSON.parse(JSON.stringify(bank.documents[0]));
+  } catch (error) {
+    console.error('An error occurred while getting the bank:', error);
     throw error;
   }
 }
