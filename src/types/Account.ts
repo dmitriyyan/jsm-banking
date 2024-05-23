@@ -6,7 +6,7 @@ export type Account = {
   mask: string;
   institutionId: string;
   name: string;
-  type: string;
+  type: AccountTypes;
   subtype: string;
   appwriteItemId: string;
   shareableId: string;

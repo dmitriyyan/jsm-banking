@@ -1,4 +1,4 @@
-type Transaction = {
+export type Transaction = {
   id: string;
   $id: string;
   name: string;

@@ -11,10 +11,11 @@ import {
 
 import { plaidClient } from '@/lib/server/plaid';
 
-import { getTransactionsByBankId } from './transaction.actions';
 import { getBanks, getBank } from './user.actions';
 import { Bank } from '@/types/Bank';
 import { Account } from '@/types/Account';
+import { Transaction } from '@/types/Transaction';
+import { getTransactionsByBankId } from './transaction.action';
 
 // Get multiple bank accounts
 export const getAccounts = async ({ userId }: { userId: string }) => {
@@ -87,21 +88,21 @@ export const getAccount = async ({
     const accountData = accountsResponse.data.accounts[0];
 
     // get transfer transactions from appwrite
-    const transferTransactionsData = await getTransactionsByBankId({
-      bankId: bank.$id,
-    });
+    // const transferTransactionsData = await getTransactionsByBankId({
+    //   bankId: bank.$id,
+    // });
 
-    const transferTransactions = transferTransactionsData.documents.map(
-      (transferData: Transaction) => ({
-        id: transferData.$id,
-        name: transferData.name!,
-        amount: transferData.amount!,
-        date: transferData.$createdAt,
-        paymentChannel: transferData.channel,
-        category: transferData.category,
-        type: transferData.senderBankId === bank.$id ? 'debit' : 'credit',
-      }),
-    );
+    // const transferTransactions = transferTransactionsData.documents.map(
+    //   (transferData: Transaction) => ({
+    //     id: transferData.$id,
+    //     name: transferData.name!,
+    //     amount: transferData.amount!,
+    //     date: transferData.$createdAt,
+    //     paymentChannel: transferData.channel,
+    //     category: transferData.category,
+    //     type: transferData.senderBankId === bank.$id ? 'debit' : 'credit',
+    //   }),
+    // );
 
     // get institution info from plaid
     const institution = await getInstitution({
@@ -127,7 +128,7 @@ export const getAccount = async ({
     };
 
     // sort transactions by date such that the most recent transaction is first
-    const allTransactions = [...transactions, ...transferTransactions].sort(
+    const allTransactions = [...transactions].sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
 

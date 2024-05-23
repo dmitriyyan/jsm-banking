@@ -280,7 +280,7 @@ export async function getBanks({ userId }: { userId: string }) {
       BANK_COLLECTION_ID!,
       [Query.equal('userId', userId)],
     );
-    return JSON.parse(JSON.stringify(banks));
+    return JSON.parse(JSON.stringify(banks.documents));
   } catch (error) {
     console.error('An error occurred while getting the banks:', error);
     throw error;

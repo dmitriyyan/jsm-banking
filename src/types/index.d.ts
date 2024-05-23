@@ -1,11 +1,3 @@
-// TODO: remove commented code
-// declare type SearchParamProps = {
-//   params: { [key: string]: string };
-//   searchParams: { [key: string]: string | string[] | undefined };
-// };
-// ========================================
-
-
 declare type LoginUser = {
   email: string;
   password: string;
@@ -56,12 +48,6 @@ declare type NewDwollaCustomerParams = {
   ssn: string;
 };
 
-declare interface BankInfoProps {
-  account: Account;
-  appwriteItemId?: string;
-  type: 'full' | 'card';
-}
-
 declare interface PageHeaderProps {
   topTitle: string;
   bottomTitle: string;
@@ -81,29 +67,9 @@ declare interface BankDropdownProps {
   otherStyles?: string;
 }
 
-declare interface BankTabItemProps {
-  account: Account;
-  appwriteItemId?: string;
-}
-
-declare interface RecentTransactionsProps {
-  accounts: Account[];
-  transactions: Transaction[];
-  appwriteItemId: string;
-  page: number;
-}
-
 declare interface TransactionHistoryTableProps {
   transactions: Transaction[];
   page: number;
-}
-
-declare interface CategoryBadgeProps {
-  category: string;
-}
-
-declare interface TransactionTableProps {
-  transactions: Transaction[];
 }
 
 declare interface CategoryProps {
@@ -131,25 +97,7 @@ declare interface CreateTransactionProps {
   email: string;
 }
 
-declare interface getTransactionsByBankIdProps {
-  bankId: string;
-}
-
-declare interface getUserInfoProps {
-  userId: string;
-}
-
 declare interface exchangePublicTokenProps {
   publicToken: string;
   user: User;
 }
-
-declare interface createBankAccountProps {
-  accessToken: string;
-  userId: string;
-  accountId: string;
-  bankId: string;
-  fundingSourceUrl: string;
-  shareableId: string;
-}
-

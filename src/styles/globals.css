@@ -53,26 +53,6 @@
     @apply text-14 px-4 py-2.5 font-semibold;
   }
 
-  .recent-transactions {
-    @apply flex w-full flex-col gap-6;
-  }
-
-  .view-all-btn {
-    @apply text-14 rounded-lg border border-gray-300 px-4 py-2.5 font-semibold text-gray-700;
-  }
-
-  .recent-transactions {
-    @apply flex w-full flex-col gap-6;
-  }
-
-  .recent-transactions-label {
-    @apply text-20 md:text-24 font-semibold text-gray-900;
-  }
-
-  .recent-transactions-tablist {
-    @apply custom-scrollbar mb-8 flex w-full flex-nowrap;
-  }
-
   /* My Banks */
   .my-banks {
     @apply flex h-screen max-h-screen w-full flex-col gap-8 bg-gray-25 p-8 xl:py-12;
@@ -98,15 +78,6 @@
   /* Bank Info */
   .bank-info {
     @apply gap-[18px] flex p-4 transition-all border bg-blue-25 border-transparent;
-  }
-
-  /* Category Badge */
-  .category-badge {
-    @apply flex-center truncate w-fit gap-1 rounded-2xl border-[1.5px] py-[2px] pl-1.5 pr-2;
-  }
-
-  .banktab-item {
-    @apply gap-[18px] border-b-2 flex px-2 sm:px-4 py-2 transition-all;
   }
 
   /* Payment Transfer */
