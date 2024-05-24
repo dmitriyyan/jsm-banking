@@ -1,3 +1,4 @@
+'use client';
 import { Button } from './ui/button';
 import { HTMLAttributes, useCallback, useEffect, useState } from 'react';
 import { PlaidLinkOptions, usePlaidLink } from 'react-plaid-link';
@@ -7,6 +8,7 @@ import {
   exchangePublicToken,
 } from '@/lib/actions/user.actions';
 import { User } from '@/types/User';
+import Image from 'next/image';
 
 type PlaidLinkProps = {
   user: User;
@@ -24,7 +26,7 @@ function getClassNames(variant?: 'primary' | 'ghost') {
       'flex cursor-pointer items-center justify-center gap-3 rounded-lg px-3 py-7 hover:bg-white lg:justify-start';
   } else {
     className =
-      'flex !justify-start cursor-pointer gap-3 rounded-lg !bg-transparent flex-row';
+      'flex !justify-start cursor-pointer gap-3 rounded-lg !bg-transparent flex-row px-3 max-md:px-4 2xl:p-4';
   }
   return className;
 }
@@ -70,8 +72,23 @@ export function PlaidLink({ user, variant, dwollaCustomerId }: PlaidLinkProps) {
         onClick={() => open()}
         disabled={!ready}
         className={getClassNames(variant)}
+        variant={variant === 'ghost' ? 'ghost' : undefined}
       >
-        Connect Bank
+        {variant !== 'primary' ? (
+          <>
+            <Image
+              src="icons/connect-bank.svg"
+              alt="connect bank"
+              width={24}
+              height={24}
+            />
+            <p className="hidden text-base font-semibold text-black-2 xl:block">
+              Connect Bank
+            </p>
+          </>
+        ) : (
+          'Connect Bank'
+        )}
       </Button>
     </>
   );

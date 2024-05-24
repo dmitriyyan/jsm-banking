@@ -131,7 +131,7 @@ export async function getLoggedInUser() {
     const { account } = await createSessionClient();
     const acc = await account.get();
     const user = await getUserInfo({ userId: acc.$id });
-    return JSON.parse(JSON.stringify(user));
+    return JSON.parse(JSON.stringify(user)) as User;
   } catch (error) {
     throw error;
   }

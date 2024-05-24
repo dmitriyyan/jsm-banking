@@ -27,7 +27,7 @@ const sidebarLinks = [
   },
   {
     imgURL: '/icons/money-send.svg',
-    route: '/payment-transfer',
+    route: '/transfer-funds',
     label: 'Transfer Funds',
   },
 ];

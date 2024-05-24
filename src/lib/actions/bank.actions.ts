@@ -17,6 +17,8 @@ import { Account } from '@/types/Account';
 import { Transaction } from '@/types/Transaction';
 import { getTransactionsByBankId } from './transaction.action';
 
+type Accounts = Bank[] & Account[];
+
 // Get multiple bank accounts
 export const getAccounts = async ({ userId }: { userId: string }) => {
   try {
@@ -62,7 +64,7 @@ export const getAccounts = async ({ userId }: { userId: string }) => {
     return JSON.parse(
       JSON.stringify({ data: accounts, totalBanks, totalCurrentBalance }),
     ) as {
-      data: Bank[] & Account[];
+      data: Accounts;
       totalBanks: number;
       totalCurrentBalance: number;
     };

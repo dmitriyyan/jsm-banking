@@ -1,7 +1,10 @@
 export async function register() {
   const Sentry = await import('@sentry/nextjs');
 
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
+  if (
+    process.env.NEXT_RUNTIME === 'nodejs' &&
+    process.env.NODE_ENV === 'production'
+  ) {
     // This file configures the initialization of Sentry on the server.
     // The config you add here will be used whenever the server handles a request.
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/
