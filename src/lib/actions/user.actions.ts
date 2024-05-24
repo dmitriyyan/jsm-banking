@@ -301,3 +301,22 @@ export async function getBank({ documentId }: { documentId: string }) {
     throw error;
   }
 }
+export async function getBankByAccountId({ accountId }: { accountId: string }) {
+  try {
+    const { database } = await createAdminClient();
+    const bank = await database.listDocuments(
+      DATABASE_ID!,
+      BANK_COLLECTION_ID!,
+      [Query.equal('accountId', accountId)],
+    );
+
+    if (bank.total !== 1) {
+      return null;
+    }
+
+    return JSON.parse(JSON.stringify(bank.documents[0]));
+  } catch (error) {
+    console.error('An error occurred while getting the bank:', error);
+    throw error;
+  }
+}

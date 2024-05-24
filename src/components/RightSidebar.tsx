@@ -4,6 +4,9 @@ import { User } from '@/types/User';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BankCard } from './BankCard';
+import { Transaction } from '@/types/Transaction';
+import { CategoryCount } from '@/types/Category';
+import { Category } from './Category';
 
 type RightSidebarProps = {
   user: User;
@@ -11,7 +14,48 @@ type RightSidebarProps = {
   banks: Bank[] & Account[];
 };
 
+export function countTransactionCategories(
+  transactions: Transaction[],
+): CategoryCount[] {
+  const categoryCounts: { [category: string]: number } = {};
+  let totalCount = 0;
+
+  // Iterate over each transaction
+  transactions &&
+    transactions.forEach((transaction) => {
+      // Extract the category from the transaction
+      const category = transaction.category;
+
+      // If the category exists in the categoryCounts object, increment its count
+      if (categoryCounts.hasOwnProperty(category)) {
+        categoryCounts[category]++;
+      } else {
+        // Otherwise, initialize the count to 1
+        categoryCounts[category] = 1;
+      }
+
+      // Increment total count
+      totalCount++;
+    });
+
+  // Convert the categoryCounts object to an array of objects
+  const aggregatedCategories: CategoryCount[] = Object.keys(categoryCounts).map(
+    (category) => ({
+      name: category,
+      count: categoryCounts[category],
+      totalCount,
+    }),
+  );
+
+  // Sort the aggregatedCategories array by count in descending order
+  aggregatedCategories.sort((a, b) => b.count - a.count);
+
+  return aggregatedCategories;
+}
+
 export function RightSidebar({ user, transactions, banks }: RightSidebarProps) {
+  const categories = countTransactionCategories(transactions);
+
   return (
     <aside className="no-scrollbar hidden h-screen max-h-screen flex-col border-l border-gray-200 xl:flex w-[355px] xl:overflow-y-scroll">
       <div className="flex flex-col pb-8">
@@ -64,6 +108,16 @@ export function RightSidebar({ user, transactions, banks }: RightSidebarProps) {
             )}
           </div>
         )}
+        <div className="mt-10 flex flex-1 flex-col gap-6">
+          <h2 className="text-18 font-semibold text-gray-900">
+            Top categories
+          </h2>
+          <div className="space-y-5">
+            {categories.map((cat) => (
+              <Category key={cat.name} category={cat} />
+            ))}
+          </div>
+        </div>
       </div>
     </aside>
   );

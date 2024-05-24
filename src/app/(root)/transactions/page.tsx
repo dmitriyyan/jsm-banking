@@ -1,4 +1,5 @@
 import { HeaderBox } from '@/components/HeaderBox';
+import { Pagination } from '@/components/Pagination';
 import { TransactionsTable } from '@/components/TransactionsTable';
 import { getAccount, getAccounts } from '@/lib/actions/bank.actions';
 import { getLoggedInUser } from '@/lib/actions/user.actions';
@@ -18,6 +19,15 @@ export default async function Transactions({
   const account = await getAccount({ appwriteItemId });
   const currentPage = page ? parseInt(page, 10) : 1;
 
+  const rowsPerPage = 10;
+  const totalPages = Math.ceil(account.transactions.length / rowsPerPage);
+  const indexOfLastTransaction = currentPage * rowsPerPage;
+  const indexOfFirstTransaction = indexOfLastTransaction - rowsPerPage;
+
+  const currentTransactions = account.transactions.slice(
+    indexOfFirstTransaction,
+    indexOfLastTransaction,
+  );
   return (
     <section className="flex max-h-screen w-full flex-col gap-8 overflow-y-scroll bg-gray-25 p-8 xl:py-12">
       <div className="flex w-full flex-col items-start justify-between gap-8 md:flex-row">
@@ -56,7 +66,12 @@ export default async function Transactions({
         </div>
       </div>
       <div className="flex w-full flex-col gap-6">
-        <TransactionsTable transactions={account.transactions} />
+        <TransactionsTable transactions={currentTransactions} />
+        {totalPages > 1 && (
+          <div className="my-4 w-full">
+            <Pagination page={currentPage} totalPages={totalPages} />
+          </div>
+        )}
       </div>
     </section>
   );

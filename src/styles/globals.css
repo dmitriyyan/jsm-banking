@@ -58,11 +58,6 @@
     @apply gap-[18px] flex p-4 transition-all border bg-blue-25 border-transparent;
   }
 
-  /* Payment Transfer */
-  .payment-transfer {
-    @apply no-scrollbar flex flex-col overflow-y-scroll bg-gray-25 p-8 md:max-h-screen xl:py-12;
-  }
-
   .payment-transfer_form-item {
     @apply flex w-full max-w-[850px] flex-col gap-3 md:flex-row lg:gap-8;
   }
@@ -80,7 +75,7 @@
   }
 
   .payment-transfer_btn {
-    @apply text-14 w-full bg-bank-gradient font-semibold text-white shadow-form !important;
+    @apply text-sm w-full bg-bank-gradient font-semibold text-white shadow-form !important;
   }
 
   /* Bank Info */

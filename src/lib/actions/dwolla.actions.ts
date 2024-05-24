@@ -24,9 +24,12 @@ const dwollaClient = new Client({
 });
 
 // Create a Dwolla Funding Source using a Plaid Processor Token
-export const createFundingSource = async (
-  options: CreateFundingSourceOptions,
-) => {
+export const createFundingSource = async (options: {
+  customerId: string; // Dwolla Customer ID
+  fundingSourceName: string; // Dwolla Funding Source Name
+  plaidToken: string; // Plaid Account Processor Token
+  _links: object; // Dwolla On Demand Authorization Link
+}) => {
   try {
     return await dwollaClient
       .post(`customers/${options.customerId}/funding-sources`, {
@@ -51,9 +54,18 @@ export const createOnDemandAuthorization = async () => {
   }
 };
 
-export const createDwollaCustomer = async (
-  newCustomer: NewDwollaCustomerParams,
-) => {
+export const createDwollaCustomer = async (newCustomer: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  type: string;
+  address1: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  dateOfBirth: string;
+  ssn: string;
+}) => {
   try {
     return await dwollaClient
       .post('customers', newCustomer)
@@ -67,7 +79,11 @@ export const createTransfer = async ({
   sourceFundingSourceUrl,
   destinationFundingSourceUrl,
   amount,
-}: TransferParams) => {
+}: {
+  sourceFundingSourceUrl: string;
+  destinationFundingSourceUrl: string;
+  amount: string;
+}) => {
   try {
     const requestBody = {
       _links: {

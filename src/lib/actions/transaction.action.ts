@@ -8,9 +8,15 @@ const {
   APPWRITE_TRANSACTION_COLLECTION_ID: TRANSACTION_COLLECTION_ID,
 } = process.env;
 
-export const createTransaction = async (
-  transaction: CreateTransactionProps,
-) => {
+export const createTransaction = async (transaction: {
+  name: string;
+  amount: string;
+  senderId: string;
+  senderBankId: string;
+  receiverId: string;
+  receiverBankId: string;
+  email: string;
+}) => {
   try {
     const { database } = await createAdminClient();
 
