@@ -125,7 +125,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 ![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/707c6ffb-568e-4463-8e37-c76f3a10df58)
 
 ### Main
-![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/02e9d8d7-b830-469b-b825-d47bf2920249)
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/2d7af2c8-2d10-494e-8499-399580ce1b1f)
 
 ### My banks
 ![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/3f2855d2-d660-424d-ada7-93819505ff1a)
