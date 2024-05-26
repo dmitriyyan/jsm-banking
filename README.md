@@ -57,21 +57,14 @@ Make sure you have the following installed on your machine:
 
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
-
-**Cloning the Repository**
-
-```bash
-git clone https://github.com/adrianhajdin/banking.git
-cd banking
-```
+- [pnpm](https://pnpm.io/)
 
 **Installation**
 
 Install the project dependencies using npm:
 
 ```bash
-npm install
+pnpm install
 ```
 
 **Set Up Environment Variables**
