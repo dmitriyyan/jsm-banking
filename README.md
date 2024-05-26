@@ -61,7 +61,7 @@ Make sure you have the following installed on your machine:
 
 **Installation**
 
-Install the project dependencies using npm:
+Install the project dependencies using pnpm:
 
 ```bash
 pnpm install
@@ -104,7 +104,7 @@ Replace the placeholder values with your actual respective account credentials. 
 **Running the Project**
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
