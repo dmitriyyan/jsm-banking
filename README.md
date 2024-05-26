@@ -115,3 +115,29 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+## Screens
+
+### Sign-in
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/5717e1aa-3027-4821-954d-c95d64ac864b)
+
+### Sign-up
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/707c6ffb-568e-4463-8e37-c76f3a10df58)
+
+### Main
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/02e9d8d7-b830-469b-b825-d47bf2920249)
+
+### My banks
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/3f2855d2-d660-424d-ada7-93819505ff1a)
+
+### Transaction History
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/ddff4f86-a93e-43fa-ae58-cc4410fbbac0)
+
+### Payment Transfer
+![image](https://github.com/dmitriyyan/jsm-banking/assets/89025862/951eaf61-40a2-44f3-b580-367d2e15eea7)
+
+
+
+
+
+
